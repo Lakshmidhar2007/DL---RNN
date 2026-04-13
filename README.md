@@ -67,7 +67,10 @@ class RNNModel(nn.Module):
     out,_=self.rnn(x)
     out=self.fc(out[:,-1,:])
     return out
-
+# Model, Loss Function, Optimizer
+model = RNNModel()
+criterion =nn.MSELoss()
+optimizer =torch.optim.Adam(model.parameters(),lr=0.001)
 
 ## Train the Model
 def train_model(model, train_loader, criterion, optimizer, epochs=20):
